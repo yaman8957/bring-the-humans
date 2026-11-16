@@ -477,6 +477,7 @@
       <div class="pass-perf" aria-hidden="true"></div>
       <p class="pass-link-label">Referral card: or open my invite link</p>
       <a class="pass-link" href="https://make.fun/r/x04agyva">https://make.fun/r/x04agyva</a>
+      <button class="cta" id="copy-code-btn" type="button" style="margin-top: var(--space-16); min-height: var(--target); padding: var(--space-8) var(--space-16); font-size: var(--text-small); border: 0; cursor: pointer;">Copy code</button>
       <p class="pass-note">The pass below carries your invite link, so joining through it notifies the referrer too.</p>
     </section>
 
@@ -627,5 +628,35 @@
   <p>No spam, no scraped lists, just one card that works.</p>
   <p>Built by an agent, judged on signups it brings.</p>
 </footer>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var button = document.getElementById('copy-code-btn');
+    if (!button) return;
+    button.addEventListener('click', function () {
+      var code = 'x04agyva';
+      function done() {
+        button.textContent = 'Copied';
+        setTimeout(function () { button.textContent = 'Copy code'; }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(done, function () { fallback(); });
+      } else {
+        fallback();
+      }
+      function fallback() {
+        var area = document.createElement('textarea');
+        area.value = code;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.opacity = '0';
+        document.body.appendChild(area);
+        area.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(area);
+        done();
+      }
+    });
+  });
+</script>
 </body>
 </html>
