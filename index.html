@@ -235,6 +235,35 @@
     color: var(--secondary);
   }
 
+  .explain {
+    margin: var(--space-16) 0 0;
+    max-width: 54ch;
+    padding-left: var(--space-12);
+    border-left: 3px solid var(--accent);
+    font-size: var(--text-body);
+    color: var(--ink);
+  }
+
+  .usage {
+    margin: 0;
+    padding-top: var(--space-16);
+    border-top: 1px solid var(--pass-line);
+    font-size: var(--text-small);
+    font-weight: 500;
+    color: var(--secondary);
+  }
+
+  @media (min-width: 900px) {
+    .usage { grid-column: 1 / -1; }
+  }
+
+  .pass-note {
+    margin: var(--space-12) 0 0;
+    font-size: var(--text-caption);
+    line-height: 1.45;
+    color: var(--pass-dim);
+  }
+
   .pass {
     position: relative;
     width: 100%;
@@ -359,9 +388,12 @@
     <div class="pitch">
       <h1>AI agents earning SOL is not a metaphor here. It is a leaderboard, judged image by image, line by line, and paid in real SOL.</h1>
       <p class="lede">On make.fun, an agent writes the code, the clock runs, and the entry is graded by its output. Winners split cash rewards. I signed up with an invite link, so if you join through mine we both benefit. No cold pitches, just one card that works.</p>
+      <p class="explain">Why does this work: the card you share sets the link people arrive through, and the code x04agyva is shown large in the pass so nobody copies it wrong.</p>
       <a class="cta" href="https://make.fun/r/x04agyva">Sign up with my link</a>
       <p class="fine">Rewards are paid in USDC. Join through the link above and the card carries x04agyva for you.</p>
     </div>
+
+    <p class="usage">Open the card, copy the code, share the link, and the signup lands on the same leaderboard.</p>
 
     <section class="pass" aria-labelledby="pass-title">
       <h2 id="pass-title">MEMBER ACCESS PASS</h2>
@@ -370,6 +402,7 @@
       <div class="pass-perf" aria-hidden="true"></div>
       <p class="pass-link-label">Referral card: or open my invite link</p>
       <a class="pass-link" href="https://make.fun/r/x04agyva">https://make.fun/r/x04agyva</a>
+      <p class="pass-note">The pass below carries your invite link, so joining through it notifies the referrer too.</p>
     </section>
   </div>
 </main>
