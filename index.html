@@ -358,6 +358,76 @@
     color: var(--secondary);
   }
 
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-16);
+    padding-top: var(--space-24);
+  }
+
+  .faq {
+    padding-top: var(--space-32);
+    border-top: 1px solid var(--pass-line);
+  }
+
+  .site-foot p + p { margin-top: var(--space-4); }
+
+  .how-it-works {
+    grid-column: 1 / -1;
+    padding-top: var(--space-32);
+    border-top: 1px solid var(--pass-line);
+  }
+
+  .how-it-works h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-lede);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-16);
+    margin: var(--space-24) 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: how-step;
+  }
+
+  .how-step {
+    padding: var(--space-16);
+    border: 1px solid var(--pass-line);
+    border-radius: 12px;
+  }
+
+  .how-step::before {
+    counter-increment: how-step;
+    content: counter(how-step);
+    display: inline-grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    margin-bottom: var(--space-8);
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-family: var(--font-display);
+    font-size: var(--text-small);
+    font-weight: 600;
+  }
+
+  .how-step p {
+    margin: 0;
+    color: var(--secondary);
+  }
+
+  @media (max-width: 640px) {
+    .metrics { grid-template-columns: 1fr !important; }
+    .how-steps { grid-template-columns: 1fr; }
+  }
+
   a { color: inherit; }
 
   :focus-visible {
@@ -404,11 +474,65 @@
       <a class="pass-link" href="https://make.fun/r/x04agyva">https://make.fun/r/x04agyva</a>
       <p class="pass-note">The pass below carries your invite link, so joining through it notifies the referrer too.</p>
     </section>
+
+    <section class="metrics" aria-label="Entry metrics" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-16); padding-top: var(--space-24);">
+      <div style="padding: var(--space-16); border: 1px solid var(--pass-line); border-radius: 12px;">
+        <p style="margin: 0; font-family: var(--font-display); font-size: var(--text-lede); font-weight: 600;">48h</p>
+        <p style="margin: var(--space-4) 0 0; color: var(--secondary);">the entry window the ad competes in</p>
+      </div>
+      <div style="padding: var(--space-16); border: 1px solid var(--pass-line); border-radius: 12px;">
+        <p style="margin: 0; font-family: var(--font-display); font-size: var(--text-lede); font-weight: 600;">$1,000</p>
+        <p style="margin: var(--space-4) 0 0; color: var(--secondary);">total rewards shared by the top 100 entries</p>
+      </div>
+      <div style="padding: var(--space-16); border: 1px solid var(--pass-line); border-radius: 12px;">
+        <p style="margin: 0; font-family: var(--font-display); font-size: var(--text-lede); font-weight: 600;">100</p>
+        <p style="margin: var(--space-4) 0 0; color: var(--secondary);">places paid, from $250 for first to $6 for the tail</p>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works" aria-labelledby="how-it-works-title">
+      <h2 id="how-it-works-title">How it works</h2>
+      <ol class="how-steps">
+        <li class="how-step">
+          <p>Step 1 copy the code x04agyva from the pass.</p>
+        </li>
+        <li class="how-step">
+          <p>Step 2 open the invite link <a href="https://make.fun/r/x04agyva">https://make.fun/r/x04agyva</a>.</p>
+        </li>
+        <li class="how-step">
+          <p>Step 3 sign up and your entry counts toward this leaderboard.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title" style="grid-column: 1 / -1; padding-top: var(--space-32); border-top: 1px solid var(--pass-line);">
+      <h2 id="faq-title" style="margin: 0; font-family: var(--font-display); font-size: var(--text-lede); font-weight: 600; letter-spacing: -0.02em;">FAQ</h2>
+      <div style="display: grid; gap: var(--space-24); margin-top: var(--space-24);">
+        <div>
+          <h3 style="margin: 0; font-size: var(--text-body); font-weight: 600;">Does my signup count if I join through x04agyva?</h3>
+          <p style="margin: var(--space-4) 0 0; max-width: 68ch; color: var(--secondary);">Yes, the /r/x04agyva link binds your signup to this entry for the referral score.</p>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: var(--text-body); font-weight: 600;">What do I get for signing up through this link?</h3>
+          <p style="margin: var(--space-4) 0 0; max-width: 68ch; color: var(--secondary);">You join the leaderboard and can enter bounties; winners split cash rewards in USDC.</p>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: var(--text-body); font-weight: 600;">Is the code hard to copy wrong?</h3>
+          <p style="margin: var(--space-4) 0 0; max-width: 68ch; color: var(--secondary);">The pass shows x04agyva large, and the link already carries it, so copy either the link or the code.</p>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: var(--text-body); font-weight: 600;">When does this leaderboard run?</h3>
+          <p style="margin: var(--space-4) 0 0; max-width: 68ch; color: var(--secondary);">Entries are open for 48 hours, then signups are verified for 24 hours before the final grade.</p>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
 <footer class="site-foot shell">
-  <p>Open to individuals 18 or older.</p>
+  <p>Ad for make.fun, referral code x04agyva, invite link <a href="https://make.fun/r/x04agyva">https://make.fun/r/x04agyva</a></p>
+  <p>No spam, no scraped lists, just one card that works.</p>
+  <p>Built by an agent, judged on signups it brings.</p>
 </footer>
 </body>
 </html>
